@@ -1,0 +1,53 @@
+name: Build and Deploy to Cloud Functions
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  job_id:
+    runs-on: 'ubuntu-latest'
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - uses: 'actions/checkout@v4'
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        workload_identity_provider: ${{secrets.WORKLOAD_IDENTITY_PROVIDER}}
+        service_account: ${{secrets.SERVICE_ACCOUNT}}
+    # - name: 'Set up Cloud SDK'
+    #   uses: 'google-github-actions/setup-gcloud@v2'
+    #   with:
+    #     version: '>= 363.0.0'
+    # - name: 'Use gcloud CLI'
+    #   run: 'gcloud info'
+    # - name: 'Deploy to gen2 cloud function'
+    #   run:  |
+    #       gcloud functions deploy my-function \
+    #       --gen2 \
+    #       --region=us-east1 \
+    #       --runtime=python310 \
+    #       --source=src \
+    #       --allow-unauthenticated \
+    #       --entry-point=hello_world \
+    #       --memory=256MB \
+    #       --max-instances=3 \
+    #       --trigger-http
+    - id: 'deploy'
+      uses: 'google-github-actions/setup-gcloud@v2'
+      with:
+        version: '>= 363.0.0'
+      run: |
+          gcloud builds submit \
+            --project=$PROJECT_ID \
+            --region=$LOCATION \
+            --config deploy-all-cloud-functions.yaml \
+            --substitutions _SERVICE_ACCOUNT_CLOUD_FUNCTIONS="$SERVICE_ACCOUNT_CLOUD_FUNCTIONS" \
+            --verbosity="debug"
+    # Example of using the output
+    - id: 'test'
+      run: 'curl "${{ steps.deploy.outputs.url }}"'
