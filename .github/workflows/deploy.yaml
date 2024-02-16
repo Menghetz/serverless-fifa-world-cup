@@ -21,7 +21,6 @@ jobs:
         create_credentials_file: true
         workload_identity_provider: ${{secrets.WORKLOAD_IDENTITY_PROVIDER}}
         service_account: ${{secrets.SERVICE_ACCOUNT}}
-        access_token_lifetime: '300s'
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
       with:
