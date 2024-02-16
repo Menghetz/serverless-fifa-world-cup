@@ -19,10 +19,10 @@ jobs:
       with:
         workload_identity_provider: ${{secrets.WORKLOAD_IDENTITY_PROVIDER}}
         service_account: ${{secrets.SERVICE_ACCOUNT}}
-    # - name: 'Set up Cloud SDK'
-    #   uses: 'google-github-actions/setup-gcloud@v2'
-    #   with:
-    #     version: '>= 363.0.0'
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
+      with:
+        version: '>= 363.0.0'
     # - name: 'Use gcloud CLI'
     #   run: 'gcloud info'
     # - name: 'Deploy to gen2 cloud function'
@@ -38,9 +38,6 @@ jobs:
     #       --max-instances=3 \
     #       --trigger-http
     - id: 'deploy'
-      uses: 'google-github-actions/setup-gcloud@v2'
-      with:
-        version: '>= 363.0.0'
       run: |
           gcloud builds submit \
             --project=$PROJECT_ID \
@@ -48,6 +45,6 @@ jobs:
             --config deploy-all-cloud-functions.yaml \
             --substitutions _SERVICE_ACCOUNT_CLOUD_FUNCTIONS="$SERVICE_ACCOUNT_CLOUD_FUNCTIONS" \
             --verbosity="debug"
-    # Example of using the output
-    - id: 'test'
-      run: 'curl "${{ steps.deploy.outputs.url }}"'
+    # # Example of using the output
+    # - id: 'test'
+    #   run: 'curl "${{ steps.deploy.outputs.url }}"'
