@@ -43,7 +43,6 @@ jobs:
             --project=$PROJECT_ID \
             --region=$LOCATION \
             --config deploy-all-cloud-functions.yaml \
-            --substitutions _SERVICE_ACCOUNT_CLOUD_FUNCTIONS="$SERVICE_ACCOUNT_CLOUD_FUNCTIONS" \
             --verbosity="debug"
     # # Example of using the output
     # - id: 'test'
