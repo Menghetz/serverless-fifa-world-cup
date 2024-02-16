@@ -40,8 +40,8 @@ jobs:
     - id: 'deploy'
       run: |
           gcloud builds submit \
-            --project=$PROJECT_ID \
-            --region=$LOCATION \
+            --project=${{vars.PROJECT_ID}} \
+            --region=${{varsLOCATION}} \
             --config deploy-all-cloud-functions.yaml \
             --verbosity="debug"
     # # Example of using the output
