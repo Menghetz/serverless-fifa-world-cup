@@ -48,6 +48,7 @@ jobs:
     #       --trigger-http
     - id: 'deploy'
       run: |
+          export SERVICE ACCOUNT=${{vars._SERVICE_ACCOUNT_CLOUD_FUNCTIONS}} && \
           gcloud builds submit \
             --project=${{vars.PROJECT_ID}} \
             --region=${{vars.LOCATION}} \
