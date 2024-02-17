@@ -15,5 +15,5 @@ gcloud functions deploy qatar-world-cup-move-processed-files-to-cold-bucket \
   --trigger-event-filters="type=google.cloud.audit.log.v1.written" \
   --trigger-event-filters="serviceName=bigquery.googleapis.com" \
   --trigger-event-filters="methodName=google.cloud.bigquery.v2.JobService.InsertJob" \
-  --trigger-location=europe-west1
+  --trigger-location=europe-west1 \
   --service-account="261692249756-compute@developer.gserviceaccount.com"
