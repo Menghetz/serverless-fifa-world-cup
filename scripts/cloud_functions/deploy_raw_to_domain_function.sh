@@ -13,5 +13,5 @@ gcloud functions deploy qatar-world-cup-stats-raw-to-domain-data-gcs \
   --source=functions/world_cup_stats_raw_to_domain_function \
   --entry-point=raw_to_domain_data_and_upload_to_gcs \
   --trigger-event-filters="type=google.cloud.storage.object.v1.finalized" \
-  --trigger-event-filters="bucket=event-driven-functions-qatar-fifa-world-cup-stats-raw" \
+  --trigger-event-filters="bucket=event-driven-functions-qatar-fifa-world-cup-stats-raw1" \
   --trigger-location=europe-west1 
