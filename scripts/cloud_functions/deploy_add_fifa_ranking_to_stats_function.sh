@@ -13,6 +13,6 @@ gcloud functions deploy qatar-world-cup-add-fifa-ranking-to-stats-domain-bq \
   --source=functions/world_cup_team_add_fifa_ranking_function \
   --entry-point=add_fifa_ranking_to_stats_domain_and_save_to_bq \
   --trigger-event-filters="type=google.cloud.storage.object.v1.finalized" \
-  --trigger-event-filters="bucket=event-driven-functions-qatar-fifa-world-cup-stats" \
+  --trigger-event-filters="bucket=event-driven-functions-qatar-fifa-world-cup-stats1" \
   --trigger-location=europe-west1
 #  --trigger-service-account="$SERVICE_ACCOUNT"
