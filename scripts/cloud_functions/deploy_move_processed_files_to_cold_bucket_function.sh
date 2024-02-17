@@ -13,9 +13,9 @@ gcloud functions deploy qatar-world-cup-move-processed-files-to-cold-bucket \
   --runtime=go121 \
   --source=functions/move_processed_files_to_cold_bucket_function \
   --entry-point=MoveProcessedFileToColdBucket \
-  --run-service-account="$SERVICE_ACCOUNT" \
+#  --run-service-account="$SERVICE_ACCOUNT" \
   --trigger-event-filters="type=google.cloud.audit.log.v1.written" \
   --trigger-event-filters="serviceName=bigquery.googleapis.com" \
   --trigger-event-filters="methodName=google.cloud.bigquery.v2.JobService.InsertJob" \
   --trigger-location=europe-west1 \
-  --trigger-service-account="$SERVICE_ACCOUNT"
+#  --trigger-service-account="$SERVICE_ACCOUNT"
