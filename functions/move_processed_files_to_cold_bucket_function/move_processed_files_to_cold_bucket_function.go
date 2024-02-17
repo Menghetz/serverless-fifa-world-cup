@@ -47,7 +47,7 @@ func moveProcessedFilesToColdBucket(ctx context.Context, e event.Event) error {
 	ExpectedDataset := "qatar_fifa_world_cup"
 	ExpectedTable := "tables/world_cup_team_players_stat"
 
-	rawSourceBucket := " event-driven-functions-qatar-fifa-world-cup-stats-raw1"
+	rawSourceBucket := "event-driven-functions-qatar-fifa-world-cup-stats-raw1"
 	rawSourceObject := "input/stats/world_cup_team_players_stats_raw_ndjson.json"
 	domainSourceBucket := "event-driven-functions-qatar-fifa-world-cup-stats1"
 	domainSourceObject := "input/stats/world_cup_team_players_stats_domain.json"
