@@ -8,6 +8,6 @@ steps:
         && ./scripts/cloud_functions/deploy_add_fifa_ranking_to_stats_function.sh \
         && ./scripts/cloud_functions/deploy_move_processed_files_to_cold_bucket_function.sh
     env:
-      - 'PROJECT_ID=${{vars.PROJECT_ID}}'
-      - 'LOCATION=${{vars.LOCATION}}'
-      - 'SERVICE_ACCOUNT=${{vars.SERVICE_ACCOUNT}}'
+      - PROJECT_ID=$PROJECT_ID
+      - LOCATION=$LOCATION
+      - SERVICE_ACCOUNT=$SERVICE_ACCOUNT
