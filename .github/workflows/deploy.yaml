@@ -17,7 +17,7 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
-        token_format: "access_token"
+        #token_format: "access_token"
         create_credentials_file: true
         workload_identity_provider: ${{secrets.WORKLOAD_IDENTITY_PROVIDER}}
         service_account: ${{secrets.SERVICE_ACCOUNT}}
@@ -25,7 +25,7 @@ jobs:
       uses: 'google-github-actions/setup-gcloud@v2'
       with:
         version: '>= 363.0.0'
-    - name: set crdential_file
+    - name: 'set crdential_file'
       run: gcloud auth login --cred-file=${{steps.auth.outputs.credentials_file_path}}
     # - name: 'Use gcloud CLI'
     #   run: 'gcloud info'
