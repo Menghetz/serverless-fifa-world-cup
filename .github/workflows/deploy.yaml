@@ -1,5 +1,10 @@
 name: Build and Deploy to Cloud Functions
 
+env:
+  PROJECT_ID: ${{vars.PROJECT_ID}}
+  LOCATION: ${{vars.LOCATION}}
+  SERVICE_ACCOUNT: ${{vars._SERVICE_ACCOUNT_CLOUD_FUNCTIONS}}
+
 on:
   push:
     branches: [ "main" ]
@@ -48,10 +53,6 @@ jobs:
             --region=${{vars.LOCATION}} \
             --config deploy-all-cloud-functions.yaml \
             --verbosity="debug"
-      env:
-          PROJECT_ID: ${{vars.PROJECT_ID}}
-          LOCATION: ${{vars.LOCATION}}
-          SERVICE_ACCOUNT: ${{vars._SERVICE_ACCOUNT_CLOUD_FUNCTIONS}}
     # # Example of using the output
     # - id: 'test'
     #   run: 'curl "${{ steps.deploy.outputs.url }}"'
