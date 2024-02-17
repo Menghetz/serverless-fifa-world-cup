@@ -15,5 +15,5 @@ gcloud functions deploy qatar-world-cup-stats-raw-to-domain-data-gcs \
 #  --run-service-account="$SERVICE_ACCOUNT" \
   --trigger-event-filters="type=google.cloud.storage.object.v1.finalized" \
   --trigger-event-filters="bucket=event-driven-functions-qatar-fifa-world-cup-stats-raw" \
-  --trigger-location=europe-west1 \
+  --trigger-location=europe-west1 
 #  --trigger-service-account="$SERVICE_ACCOUNT"
