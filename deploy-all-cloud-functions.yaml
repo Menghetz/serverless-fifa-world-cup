@@ -1,3 +1,7 @@
+env:
+  PROJECT_ID: ${{vars.PROJECT_ID}}
+  LOCATION: ${{vars.LOCATION}}
+  SERVICE_ACCOUNT: ${{vars._SERVICE_ACCOUNT_CLOUD_FUNCTIONS}}
 steps:
   - name: google/cloud-sdk:429.0.0
     entrypoint: 'bash'
