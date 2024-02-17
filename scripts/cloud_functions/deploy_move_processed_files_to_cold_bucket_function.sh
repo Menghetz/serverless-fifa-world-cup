@@ -7,7 +7,6 @@ set -u
 echo "############# Deploying the Cloud Function qatar-world-cup-move-processed-files-to-cold-bucket"
 
 gcloud functions deploy qatar-world-cup-move-processed-files-to-cold-bucket \
-  --quiet \
   --gen2 \
   --region=europe-west1 \
   --runtime=go121 \
