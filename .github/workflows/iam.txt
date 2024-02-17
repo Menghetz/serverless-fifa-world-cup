@@ -15,3 +15,6 @@ gcloud iam service-accounts add-iam-policy-binding github-action@amazon-tracker-
   --project=amazon-tracker-264915 ^
   --role="roles/iam.workloadIdentityUser" ^
   --member="principalSet://iam.googleapis.com/projects/261692249756/locations/global/workloadIdentityPools/my-pool-serverless/attribute.repository/Menghetz/serverless-fifa-world-cup"
+
+  ERROR: (gcloud.functions.deploy) ResponseError: status=[403], code=[Ok], message=[Permission 'cloudfunctions.functions.get' denied on 'projects/amazon-tracker-264915/locations/europe-west1/functions/qatar-world-cup-stats-raw-to-domain-data-gcs']
+Grant Cloud function developer to cloud build service : https://stackoverflow.com/questions/61922879/error-gcloud-functions-deploy-responseerror-status-403-code-forbidden
